@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         breadcrumb.innerHTML = '';
         
         if (pathHistory.length === 0) {
-            breadcrumb.innerHTML = '<span class="path-item empty">未连接</span>';
+            breadcrumb.innerHTML = '<span class="path-item empty">Not Connected</span>';
             return;
         }
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fileListBody.innerHTML = `
                 <tr>
                     <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 32px;">
-                        该目录为空
+                        Directory is empty
                     </td>
                 </tr>`;
             return;
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (!response.ok || data.error) {
-                throw new Error(data.error || '请求失败，未知错误');
+                throw new Error(data.error || 'Request failed, unknown error');
             }
 
             if (data.success) {
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contentFilename.textContent = filename;
                 showState('content');
             } else {
-                throw new Error('获取内容异常');
+                throw new Error('Failed to load content');
             }
         } catch (err) {
             showError(err.message);
@@ -262,14 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (!response.ok || data.error) {
-                throw new Error(data.error || '请求失败，未知错误');
+                throw new Error(data.error || 'Request failed, unknown error');
             }
 
             if (data.success && Array.isArray(data.entries)) {
                 renderList(data.entries);
                 showState('data');
             } else {
-                throw new Error('返回的数据格式异常');
+                throw new Error('Data format error from server');
             }
         } catch (err) {
             showError(err.message);
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value.trim();
 
         if (!targetUrl.startsWith('svn://') && !targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
-            alert('请输入正确的 SVN 协议前缀（如 svn://）');
+            alert('Please enter a valid SVN protocol prefix (e.g., svn://, http://, https://)');
             return;
         }
 

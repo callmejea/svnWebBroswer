@@ -80,7 +80,7 @@ if (is_resource($process)) {
         http_response_code(400);
         $errorMsg = trim($stderr) ?: trim($stdout);
         // 有些提示包含换行或多余空格
-        echo json_encode(['error' => 'SVN 命令执行失败: ' . $errorMsg]);
+        echo json_encode(['error' => 'SVN command failed: ' . $errorMsg]);
         exit;
     }
 
@@ -104,7 +104,7 @@ if (is_resource($process)) {
                 $errorString .= trim($error->message) . "\n";
             }
             libxml_clear_errors();
-            throw new Exception("解析 XML 失败: " . $errorString);
+            throw new Exception("Failed to parse SVN XML output: " . $errorString);
         }
 
         $entries = [];
@@ -138,9 +138,9 @@ if (is_resource($process)) {
 
     } catch (Exception $e) {
         http_response_code(500);
-        echo json_encode(['error' => '数据解析异常: ' . $e->getMessage()]);
+        echo json_encode(['error' => 'Data parsing error: ' . $e->getMessage()]);
     }
 } else {
     http_response_code(500);
-    echo json_encode(['error' => '无法在服务器上执行 SVN 命令']);
+    echo json_encode(['error' => 'Could not execute SVN command on the server']);
 }
