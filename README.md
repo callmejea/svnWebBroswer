@@ -6,6 +6,8 @@
 This is a lightweight, asynchronous, and modern UI web-based SVN browser. 
 It uses a minimalistic PHP backend to securely interact with the `svn` command line, and pure vanilla HTML/CSS/JS to provide a smooth, responsive frontend experience. It requires no heavy frameworks—only a server with PHP and SVN installed, making it completely **plug-and-play**.
 
+![Screenshot](./img.png)
+
 ## 🌟 Features
 - **Pure & Minimalistic**: Zero third-party NPM packages, no complex Node.js setups, and no database required.
 - **Dynamic Tree Browsing**: After connecting with your credentials, everything loads asynchronously. Click any directory to enter it, and use the "breadcrumbs" navigation to instantly jump back to parent levels.

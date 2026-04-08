@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVN Web 浏览器</title>
+    <title>SVN Web Browser</title>
     <!-- 引入自定义 Google 字体 (Inter) 和 Remix Icon 作为图标库 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,33 +17,33 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2><i class="ri-git-repository-line"></i> SVN Browser</h2>
-                <p>轻量级 SVN 网页浏览工具</p>
+                <p>Lightweight SVN Web Browser</p>
             </div>
 
             <form id="svn-form" class="auth-form">
                 <div class="form-group">
-                    <label for="baseUrl">SVN 地址</label>
+                    <label for="baseUrl">SVN URL</label>
                     <div class="input-wrapper">
                         <i class="ri-link"></i>
                         <input type="text" id="baseUrl" placeholder="svn://..." required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="username">用户名</label>
+                    <label for="username">Username</label>
                     <div class="input-wrapper">
                         <i class="ri-user-line"></i>
-                        <input type="text" id="username" placeholder="SVN 账号" required>
+                        <input type="text" id="username" placeholder="SVN Username" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">密码</label>
+                    <label for="password">Password</label>
                     <div class="input-wrapper">
                         <i class="ri-lock-line"></i>
-                        <input type="password" id="password" placeholder="SVN 密码" required>
+                        <input type="password" id="password" placeholder="SVN Password" required>
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">
-                    <i class="ri-search-line"></i> 连接并浏览
+                    <i class="ri-search-line"></i> Connect & Browse
                 </button>
             </form>
         </aside>
@@ -53,7 +53,7 @@
             <!-- 顶部导航条（面包屑） -->
             <header class="top-bar">
                 <div class="breadcrumb" id="breadcrumb">
-                    <span class="path-item empty">请输入 SVN 地址并连接</span>
+                    <span class="path-item empty">Please enter SVN URL and connect</span>
                 </div>
             </header>
 
@@ -62,7 +62,7 @@
                 <!-- 加载状态 -->
                 <div id="loading" class="state-container hidden">
                     <div class="spinner"></div>
-                    <p>正在获取数据...</p>
+                    <p>Fetching data...</p>
                 </div>
 
                 <!-- 错误状态 -->
@@ -76,11 +76,11 @@
                     <table class="file-table">
                         <thead>
                             <tr>
-                                <th class="col-name">名称</th>
-                                <th class="col-size">大小</th>
-                                <th class="col-rev">版本</th>
-                                <th class="col-author">作者</th>
-                                <th class="col-date">修改时间</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-size">Size</th>
+                                <th class="col-rev">Revision</th>
+                                <th class="col-author">Author</th>
+                                <th class="col-date">Last Modified</th>
                             </tr>
                         </thead>
                         <tbody id="file-list">
@@ -93,7 +93,7 @@
                 <div id="file-content" class="content-container hidden">
                     <div class="content-header">
                         <button id="btn-back-list" class="btn-secondary">
-                            <i class="ri-arrow-left-line"></i> 返回列表
+                            <i class="ri-arrow-left-line"></i> Back to List
                         </button>
                         <div class="content-title">
                             <i class="ri-file-text-line"></i>
@@ -109,7 +109,7 @@
                 <!-- 初始状态 -->
                 <div id="init-state" class="state-container init">
                     <i class="ri-folder-open-line outline-icon"></i>
-                    <p>在左侧输入信息后开始浏览</p>
+                    <p>Enter connection details on the left to start browsing</p>
                 </div>
             </div>
         </main>
